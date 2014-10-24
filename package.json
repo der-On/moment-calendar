@@ -1,0 +1,30 @@
+{
+  "name": "moment-calendar",
+  "version": "0.0.1",
+  "description": "provides queryable calendar data structure",
+  "main": "index.js",
+  "scripts": {
+    "test": "jake test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:der-On/moment-calendar.git"
+  },
+  "keywords": [
+    "calendar",
+    "moment"
+  ],
+  "author": "Ondrej Brinkel <info@anzui.de>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/der-On/moment-calendar/issues"
+  },
+  "homepage": "https://github.com/der-On/moment-calendar",
+  "dependencies": {
+    "moment": "^2.8.3",
+    "moment-range": "^1.0.5"
+  },
+  "devDependencies": {
+    "jake": "^8.0.10"
+  }
+}
