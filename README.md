@@ -2,6 +2,8 @@
 
 Provides queryable calendar data structure.
 
+Based on [moment.js](http://momentjs.com).
+
 ## Install
 
 ```bash
@@ -14,8 +16,11 @@ $ npm install moment-calendar
 var Calendar = require('moment-calendar');
 
 var calendar = new Calendar({
-  eventStartDate: 'start', // name of the property in event objects containing the start date
-  eventEndDate: 'end', // name of the property in event objects containing the end date
+  // name of the property in event objects containing the start date
+  eventStartDate: 'start',
+  // name of the property in event objects containing the end date
+  eventEndDate: 'end',
+  // locale
   locale: 'en'
 });
 
@@ -38,7 +43,7 @@ calendar.push(event);
 var eventsIn2014 = calendar.findInYear(2014);
 
 // by chaining you can get as granular as you need
-var events = calendar.findInYear().findInMonth(5).findInDate(20);
+var events = calendar.findInYear(2014).findInMonth(5).findInDate(20);
 
 // you can also query ranges, a new calendar is returned
 var eventsInRange = calendar.findInRange('2013-01-01', '2013-12-31');
