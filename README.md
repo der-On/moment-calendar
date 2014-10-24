@@ -42,6 +42,8 @@ calendar.push(event);
 // returns new calendar containing events within the year 2014
 var eventsIn2014 = calendar.findInYear(2014);
 
+// events are always sorted by theire start date
+
 // by chaining you can get as granular as you need
 var events = calendar.findInYear(2014).findInMonth(5).findInDate(20);
 
