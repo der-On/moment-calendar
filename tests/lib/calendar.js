@@ -152,6 +152,86 @@ var tests = {
 
     assert.equal(results.length(), 1);
     assert.equal(results.toArray()[0].id, 11);
+  },
+  'years()': function() {
+    var calendar = new Calendar();
+    calendar.setStart('2000-01-01T00:00:00Z');
+    calendar.setEnd('2009-11-31T23:59:59Z');
+
+    for(var i = 0; i < 10; i++) {
+      calendar.push({
+        start: (2000 + i) + '-01-01T00:00:00Z',
+        id: i + 1
+      });
+    }
+
+    var years = calendar.years();
+    assert.equal(years.length, 10);
+
+    years.forEach(function(year, i) {
+      assert.equal(year.length(), 1);
+      assert.equal(year.toArray()[0].id, i + 1);
+    });
+  },
+  'months()': function() {
+    var calendar = new Calendar();
+    calendar.setStart('2000-01-01T00:00:00Z');
+    calendar.setEnd('2000-11-31T23:59:59Z');
+
+    for(var i = 0; i < 12; i++) {
+      calendar.push({
+        start: {year: 2000, month: i },
+        id: i + 1
+      });
+    }
+
+    var months = calendar.months();
+    assert.equal(months.length, 12);
+
+    months.forEach(function(month, i) {
+      assert.equal(month.length(), 1);
+      assert.equal(month.toArray()[0].id, i + 1);
+    });
+  },
+  'weeks()': function() {
+    var calendar = new Calendar();
+    calendar.setStart('2014-01-01T00:00:00Z');
+    calendar.setEnd('2014-01-31T23:59:59Z');
+
+    for(var i = 0; i < 6; i++) {
+      calendar.push({
+        start: {year: 2014, month: 0, day: i * 7 },
+        id: i + 1
+      });
+    }
+
+    var weeks = calendar.weeks();
+    assert.equal(weeks.length, 5);
+
+    weeks.forEach(function(week, i) {
+      assert.equal(week.length(), 1);
+      assert.equal(week.toArray()[0].id, i + 1);
+    });
+  },
+  'days()': function() {
+    var calendar = new Calendar();
+    calendar.setStart('2014-01-01T00:00:00Z');
+    calendar.setEnd('2014-01-11T23:59:59Z');
+
+    for(var i = 0; i < 12; i++) {
+      calendar.push({
+        start: {year: 2014, month: 0, day: i + 1 },
+        id: i + 1
+      });
+    }
+
+    var days = calendar.days();
+    assert.equal(days.length, 12);
+
+    days.forEach(function(day, i) {
+      assert.equal(day.length(), 1);
+      assert.equal(day.toArray()[0].id, i + 1);
+    });
   }
 };
 

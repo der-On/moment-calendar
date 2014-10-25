@@ -50,7 +50,7 @@ var events = calendar.findInYear(2014).findInMonth(5).findInDate(20);
 // you can also query ranges, a new calendar is returned
 var eventsInRange = calendar.findInRange('2013-01-01', '2013-12-31');
 
-// returns a list of months
+// returns a list of months, the list items are calendar instances too
 var months = calendar.months(2014);
 
 months.forEach(function(month, i) {
