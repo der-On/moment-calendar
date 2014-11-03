@@ -83,6 +83,27 @@ var tests = {
       assert.equal(event.id, i + 5);
     });
   },
+  'findInRange() with eventStartDate and eventEndDate as functions': function() {
+    var calendar = new Calendar({
+      eventStartDate: function(event) { return event.start; },
+      eventEndDate: function(event) { return event.end; }
+    });
+
+    for(var i = 0; i < 10; i++) {
+      calendar.push({
+        start: (2000 + i) + '-01-01T00:00:00Z',
+        end: (2005 + i) + '-01-01T00:00:00Z',
+        id: i + 1
+      });
+    }
+
+    var results = calendar.findInRange('2009-01-01T00:00:00Z', '2010-01-01T00:00:00Z');
+    assert.equal(results.length(), 6);
+
+    results.forEach(function(event, i) {
+      assert.equal(event.id, i + 5);
+    });
+  },
   'findInYear()': function()
   {
     var calendar = new Calendar();
