@@ -232,6 +232,27 @@ var tests = {
       assert.equal(day.length(), 1);
       assert.equal(day.toArray()[0].id, i + 1);
     });
+  },
+  'monthWeeks': function()
+  {
+    var calendar = new Calendar();
+    calendar.setStart('2014-01-01T00:00:00Z');
+    calendar.setEnd('2014-01-31T23:59:59Z');
+
+    for(var i = 0; i < 6; i++) {
+      calendar.push({
+        start: {year: 2014, month: 0, day: i * 7 },
+        id: i + 1
+      });
+    }
+
+    var weeks = calendar.monthWeeks(0);
+    assert.equal(weeks.length, 5);
+
+    weeks.forEach(function(week, i) {
+      assert.equal(week.length(), 1);
+      assert.equal(week.toArray()[0].id, i + 1);
+    });
   }
 };
 
