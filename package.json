@@ -1,6 +1,6 @@
 {
   "name": "moment-calendar",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "provides queryable calendar data structure",
   "main": "index.js",
   "scripts": {
